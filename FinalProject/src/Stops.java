@@ -96,18 +96,12 @@ public class Stops {
 		
 	}
 	
-	public String getStopID() {
-		if (stop_id == -1) {
-			return "Not Valid";
-		} else
-			return Integer.toString(this.stop_id);
+	public int getStopID() {
+		return this.stop_id;
 	}
 	
-	public String getStopCode() {
-		if (stop_code == -1) {
-			return "Not Valid";
-		} else
-			return Integer.toString(this.stop_code);
+	public int getStopCode() {
+		return this.stop_code;
 	}
 	
 	public String getStopName() {
@@ -118,17 +112,11 @@ public class Stops {
 		return stop_desc;
 	}
 	
-	public String getStopLat() {
-		if (stop_lat == -1) {
-			return "Not Valid";
-		} else
-			return Double.toString(this.stop_lat);
+	public double getStopLat() {
+		return this.stop_lat;
 	}
 	
-	public String getStopLon() {
-		if (stop_lon == -1) {
-			return "Not Valid";
-		} else
-			return Double.toString(this.stop_lon);
+	public double getStopLon() {
+		return this.stop_lon;
 	}
 }
