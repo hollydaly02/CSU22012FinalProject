@@ -1,6 +1,11 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
+	
+	public static ArrayList<Stops> stops = new ArrayList<Stops>();
 
 	public static void main(String[] args) {
 		Scanner inputScanner = new Scanner(System.in);
@@ -49,5 +54,22 @@ public class UserInterface {
 		inputScanner.close();
 		System.out.println("Program has now exited");
 	}
+	
+	public static void stopsList() {
+		try {
+			File stopsInputFile = new File("stops.txt");
+			Scanner stopsScanner = new Scanner(stopsInputFile);
+			stopsScanner.nextLine();
+			while (stopsScanner.hasNextLine()) {  
+				String stopsData = stopsScanner.nextLine();
+				stops.add(new Stops(stopsData));
+			}
+			stopsScanner.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("stops.txt not found");
+		}
+	}
+	
 }
 
