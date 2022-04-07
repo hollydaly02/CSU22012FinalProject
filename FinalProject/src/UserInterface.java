@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class UserInterface {
 	
 	public static ArrayList<Stops> stops = new ArrayList<Stops>();
+	public static ArrayList<StopTimes> stopTimes = new ArrayList<StopTimes>();
 
 	public static void main(String[] args) {
 		Scanner inputScanner = new Scanner(System.in);
@@ -71,5 +72,20 @@ public class UserInterface {
 		}
 	}
 	
+	public static void stopTimesList() {
+		try {
+			File stopTimesInputFile = new File("stops_times.txt");
+			Scanner stopTimesScanner = new Scanner(stopTimesInputFile);
+			stopTimesScanner.nextLine();
+			while (stopTimesScanner.hasNextLine()) {  
+				String stopsData = stopTimesScanner.nextLine();
+				stops.add(new Stops(stopsData));
+			}
+			stopTimesScanner.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("stop_times.txt not found");
+		}
+	}
 }
 
