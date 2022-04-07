@@ -7,6 +7,7 @@ public class UserInterface {
 	
 	public static ArrayList<Stops> stops = new ArrayList<Stops>();
 	public static ArrayList<StopTimes> stopTimes = new ArrayList<StopTimes>();
+	public static ArrayList<Transfers> transfers = new ArrayList<Transfers>();
 
 	public static void main(String[] args) {
 		Scanner inputScanner = new Scanner(System.in);
@@ -85,6 +86,22 @@ public class UserInterface {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println("stop_times.txt not found");
+		}
+	}
+	
+	public static void transfersList() {
+		try {
+			File transfersInputFile = new File("transfers.txt");
+			Scanner transfersScanner = new Scanner(transfersInputFile);
+			transfersScanner.nextLine();
+			while (transfersScanner.hasNextLine()) {  
+				String stopsData = transfersScanner.nextLine();
+				stops.add(new Stops(stopsData));
+			}
+			transfersScanner.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("transfers.txt not found");
 		}
 	}
 }
