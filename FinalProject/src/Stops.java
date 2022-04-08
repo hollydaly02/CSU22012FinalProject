@@ -96,12 +96,18 @@ public class Stops {
 		
 	}
 	
-	public int getStopID() {
-		return this.stop_id;
+	public String getStopID() {
+		if (this.stop_id == -1) {
+			return "invalid name";
+		}
+		else return Integer.toString(this.stop_id);
 	}
 	
-	public int getStopCode() {
-		return this.stop_code;
+	public String getStopCode() {
+		if (this.stop_code == -1) {
+			return "invalid code";
+		}
+		else return Integer.toString(this.stop_code);
 	}
 	
 	public String getStopName() {
@@ -112,11 +118,21 @@ public class Stops {
 		return stop_desc;
 	}
 	
-	public double getStopLat() {
-		return this.stop_lat;
+	public String getStopLat() {
+		if (this.stop_lat == -1) {
+			return "invalid lat";
+		}
+		return Double.toString(this.stop_lat);
 	}
 	
-	public double getStopLon() {
-		return this.stop_lon;
+	public String getStopLon() {
+		if (this.stop_lon == -1) {
+			return "invalid lon";
+		}
+		return Double.toString(this.stop_lon);
+	}
+	
+	public String getZoneID() {
+		return this.zone_id;
 	}
 }
